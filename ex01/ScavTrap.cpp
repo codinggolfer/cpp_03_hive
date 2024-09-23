@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eagbomei <eagbomei@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 14:36:02 by eagbomei          #+#    #+#             */
-/*   Updated: 2024/09/23 16:42:32 by eagbomei         ###   ########.fr       */
+/*   Created: 2024/09/23 16:26:55 by eagbomei          #+#    #+#             */
+/*   Updated: 2024/09/23 16:50:04 by eagbomei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main()
-{
-	ClapTrap Jim("Jim");
-	ClapTrap Bob("Bob");
-	
-	Jim.setAttackDamage(5);
-	Jim.attack(Bob.getName());
-	Bob.takeDamage(Jim.getAttackDamage());
-	Bob.beRepaired(5);
-	
-	return 0;
+ScavTrap::ScavTrap(){
+	std::cout << "someone spawned in ScavTrap" << std::endl;
+}
+
+ScavTrap::ScavTrap(std::string newName) : name(newName){
+	std::cout << this->getName() << " spawned in ScavTrap" << std::endl;
+}
+
+
+
+
+
+ScavTrap::~ScavTrap(){
+	std::cout << "someone died" << std::endl;
 }
