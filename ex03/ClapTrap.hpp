@@ -6,7 +6,7 @@
 /*   By: eagbomei <eagbomei@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:36:12 by eagbomei          #+#    #+#             */
-/*   Updated: 2024/09/24 11:56:23 by eagbomei         ###   ########.fr       */
+/*   Updated: 2024/09/24 15:16:42 by eagbomei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	ClapTrap& operator=(const ClapTrap& copy);
 
 	
-	void attack(const std::string& target);
+	virtual void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 

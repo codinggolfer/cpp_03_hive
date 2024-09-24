@@ -6,18 +6,23 @@
 /*   By: eagbomei <eagbomei@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:36:02 by eagbomei          #+#    #+#             */
-/*   Updated: 2024/09/24 12:20:24 by eagbomei         ###   ########.fr       */
+/*   Updated: 2024/09/24 15:32:29 by eagbomei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.Hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
 	ClapTrap Jim("Jim");
 	ScavTrap j("Kalle");
+	FragTrap f("frodo");
+	DiamondTrap g("Goblin");
 	Jim.setAttackDamage(11);
+	g.attack(Jim.getName());
 	Jim.attack(j.getName());
 	j.takeDamage(Jim.getAttackDamage());
 	j.attack(Jim.getName());
@@ -33,7 +38,10 @@ int main()
 	b.attack(j.getName());
 	j.takeDamage(b.getAttackDamage());
 	j.beRepaired(30);
-	std::cout << j.getHitpoints() << std::endl;
+	f.highFivesGuys();
+	f.attack(Bob.getName());
+	Bob.takeDamage(f.getAttackDamage());
+	g.whoAmI();
 	
 	return 0;
 }

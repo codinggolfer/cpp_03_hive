@@ -6,13 +6,13 @@
 /*   By: eagbomei <eagbomei@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:36:26 by eagbomei          #+#    #+#             */
-/*   Updated: 2024/09/23 16:22:20 by eagbomei         ###   ########.fr       */
+/*   Updated: 2024/09/24 13:48:11 by eagbomei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(){
+ClapTrap::ClapTrap() : _hitpoints(10), _energypoints(10), _attackDamage(0) {
 	std::cout << "someone spawned" << " spawned." << std::endl;
 }
 
