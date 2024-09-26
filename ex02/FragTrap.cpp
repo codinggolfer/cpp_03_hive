@@ -6,29 +6,33 @@
 /*   By: eagbomei <eagbomei@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 13:39:38 by eagbomei          #+#    #+#             */
-/*   Updated: 2024/09/24 14:07:07 by eagbomei         ###   ########.fr       */
+/*   Updated: 2024/09/26 21:50:02 by eagbomei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.Hpp"
 
 FragTrap::FragTrap(){
-	std::cout << "FragTrap spawned" << std::endl;
+	this->name = "Fraggy";
+	this->_hitpoints = 100;
+	this->_energypoints = 100;
+	this->_attackDamage = 30;
+	std::cout << this->name << "FragTrap spawned" << std::endl;
 }
 
 FragTrap::FragTrap(std::string newName) 
 {
-	this->setName(newName);
+	this->name = newName;
+	this->_hitpoints = 100;
+	this->_energypoints = 100;
+	this->_attackDamage = 30;
 	std::cout << this->getName() << " the FragTrap robot spawned." << std::endl;
-	this->setHitpoint(100);
-	this->setEnergyPoints(100);
-	this->setAttackDamage(30);
 }
 
 FragTrap::FragTrap(FragTrap& copy)
 {
 	*this = copy;
-	std::cout << "FragTrap copy constructor called for " << this->getName() << std::endl;
+	std::cout << "FragTrap copy constructor called for " << this->getName() << " was created again. LOL" << std::endl;
 }
 
 FragTrap& FragTrap::operator=(FragTrap& copy)
@@ -36,10 +40,10 @@ FragTrap& FragTrap::operator=(FragTrap& copy)
 	std::cout << "FragTrap copy assignment operator called." << std::endl;
 	if (this != &copy)
 	{
-		this->setHitpoint(copy.getHitpoints());
-		this->setName(copy.getName());
-		this->setEnergyPoints(copy.getAttackDamage());
-		this->setAttackDamage(copy.getAttackDamage());
+		this->_hitpoints =copy.getHitpoints();
+		this->name = copy.getName();
+		this->_energypoints = copy.getAttackDamage();
+		this->_attackDamage = copy.getAttackDamage();
 	}
 	return *this;
 }
@@ -51,5 +55,5 @@ void FragTrap::highFivesGuys()
 
 FragTrap::~FragTrap()
 {
-	std::cout << this->getName() << " FragTrap executed." << std::endl;
+	std::cout << this->getName() << " FragTrap Fragged." << std::endl;
 }

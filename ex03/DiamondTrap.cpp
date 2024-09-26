@@ -6,7 +6,7 @@
 /*   By: eagbomei <eagbomei@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 14:08:35 by eagbomei          #+#    #+#             */
-/*   Updated: 2024/09/24 15:33:06 by eagbomei         ###   ########.fr       */
+/*   Updated: 2024/09/26 21:46:49 by eagbomei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@ DiamondTrap::DiamondTrap(){
 	std::cout << "DiamondTrap spawned" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string newName) : ClapTrap(newName)
+DiamondTrap::DiamondTrap(std::string newName) : ClapTrap(newName + "_clap_trap"), ScavTrap(newName), FragTrap(newName)
 {
 	this->name = newName;
-	ClapTrap::setName(newName  + "clap_name");
 	std::cout << this->name << " the DiamondTrap robot spawned." << std::endl;
-	this->setHitpoint(FragTrap::getHitpoints());
-	this->setEnergyPoints(ScavTrap::getEnergyPoints());
-	this->setAttackDamage(FragTrap::getAttackDamage());
+	this->_hitpoints = FragTrap::getHitpoints();
+	this->_attackDamage = FragTrap::getAttackDamage();
+	this->_energypoints = 50;
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap& copy)
@@ -37,18 +36,14 @@ DiamondTrap& DiamondTrap::operator=(DiamondTrap& copy)
 	std::cout << "DiamondTrap copy assignment operator called." << std::endl;
 	if (this != &copy)
 	{
-		this->setHitpoint(copy.getHitpoints());
+		this->_hitpoints = copy.getHitpoints();
 		this->name = copy.name;
-		this->setEnergyPoints(copy.getAttackDamage());
-		this->setAttackDamage(copy.getAttackDamage());
+		this->_energypoints = copy.getAttackDamage();
+		this->_attackDamage = copy.getAttackDamage();
 	}
 	return *this;
 }
 
-void DiamondTrap::attack(const std::__1::string &target) {
-	std::cout << this->getName() << " attacks with golf club" << " causing " << this->getAttackDamage() << " points of damage to "  << target << std::endl;
-
-}
 
 void DiamondTrap::whoAmI(){
 	std::cout << "Diamond's name: " << this->name << ". ClapTrap name: " << this->getName() << std::endl;
@@ -56,5 +51,5 @@ void DiamondTrap::whoAmI(){
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << this->getName() << " is destroyed by diamond deconstructor." << std::endl;
+	std::cout << this->name  << " or " << this->getName() << " is destroyed by diamond deconstructor." << std::endl;
 }

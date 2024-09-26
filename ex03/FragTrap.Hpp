@@ -6,7 +6,7 @@
 /*   By: eagbomei <eagbomei@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 13:39:14 by eagbomei          #+#    #+#             */
-/*   Updated: 2024/09/24 14:59:54 by eagbomei         ###   ########.fr       */
+/*   Updated: 2024/09/26 20:19:00 by eagbomei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ClapTrap.hpp"
 
 
-class FragTrap : public virtual ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 private:
 	
@@ -25,6 +25,7 @@ public:
 	FragTrap(FragTrap& copy);
 	FragTrap& operator=(FragTrap& cpy);
 	void highFivesGuys();
+
 	~FragTrap();
 };
 

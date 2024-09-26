@@ -1,4 +1,4 @@
-NAME	=	FragTrap
+NAME	=	DiamondTrap
 
 CFLAGS	=	-Wall -Wextra -Werror -std=c++11
 
